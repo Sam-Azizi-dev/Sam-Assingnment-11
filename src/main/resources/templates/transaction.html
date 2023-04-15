@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Transaction Details</title>
+   
+</head>
+<body>
+   
+    <div>
+        <H1><strong>Transaction ID:</strong> [[${transaction.id}]] ([[${transaction.type}]])</H1>
+        <p>Date: [[${transaction.date}]]</p>
+        <p>Amount: [[${transaction.amount}]]</p>
+        <p>Description [[${transaction.description}]]</p>
+        <p></p>
+    </div>
+    <a href="/transactions">Back to History</a>
+</body>
+</html>

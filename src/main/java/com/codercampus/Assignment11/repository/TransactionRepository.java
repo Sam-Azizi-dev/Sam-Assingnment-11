@@ -4,6 +4,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -20,9 +22,10 @@ public class TransactionRepository {
 	}
 	
 	public List<Transaction> findAll () {
+		  Collections.sort(transactions);
 		return transactions;
 	}
-
+	
 	@SuppressWarnings("unchecked")
 	private void populateData() {
 		try (FileInputStream fileInputStream = new FileInputStream("transactions.txt");
@@ -32,5 +35,13 @@ public class TransactionRepository {
 			e.printStackTrace();
 		} 
 		
+	}
+	public Transaction findById (Long trId) {
+		for (Transaction  transaction: transactions) {
+            if (transaction.getId().equals(trId)) {
+            	return transaction;         
+            }
+        }
+		return null;
 	}
 }

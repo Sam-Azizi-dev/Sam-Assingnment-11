@@ -18,5 +18,9 @@ public class TransactionServices {
 		 List<Transaction> transactions = transactionRepo.findAll() ;
 		 return transactions;
 	}
-		
+
+	public Transaction findById(Long trId) {
+		return transactionRepo.findById(trId);
+	}
+	
 }
